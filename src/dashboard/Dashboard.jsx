@@ -1,8 +1,7 @@
-import React from "react";
 import Sidebar from "../components/Sidebar";
 import Header from "../components/Header";
 import { Outlet } from "react-router-dom";
-
+import  Dash from "../Dashboard";
 const Dashboard = () => {
   return (
     <>
@@ -10,6 +9,7 @@ const Dashboard = () => {
         <Sidebar />
         <main className=" w-full">
           <Header />
+          <Dash />
           <Outlet />
         </main>
       </div>

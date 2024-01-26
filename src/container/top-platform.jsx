@@ -18,7 +18,7 @@ const TopPlatformItem = ({ name, amount, percentage, colorScheme }) => {
   const initialWidth = 0; 
 
   return (
-    <Stack  justify="space-between" w="452px" bg="white" borderRadius="14px" mb={4}>
+    <Stack  justify="space-between" w={{base: "full", md:"452px"}} bg="white" borderRadius="14px" mb={4}>
           <Text fontWeight={600}>{name}</Text>
           <MotionBox bg={trackColor} width="100%" rounded={"full"}>
         <Progress
@@ -51,7 +51,7 @@ TopPlatformItem.propTypes = {
 
 const TopPlatformsList = () => {
   return (
-    <Box p={5} shadow="md" borderWidth="1px" borderRadius="md">
+    <Box p={5} w={{base:"full", md:"488px"}} bg="white" borderRadius="14px">
       <HStack justify="space-between" mb={4}>
         <Text fontSize="lg" fontWeight="600" >
         Top Platform
