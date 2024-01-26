@@ -5,6 +5,8 @@ import bell_icon from "../assets/bell_icon.svg";
 import { HamburgerIcon } from "@chakra-ui/icons";
 import { useColorMode } from "@chakra-ui/react";
 import todaysDate from "../utils/date";
+import PropTypes from "prop-types"
+
 
 const Header = ({ handleMobileHeader }) => {
   const { colorMode } = useColorMode();
@@ -54,4 +56,7 @@ const Header = ({ handleMobileHeader }) => {
   );
 };
 
+Header.propTypes = {
+  handleMobileHeader: PropTypes.func
+}
 export default Header;

@@ -53,13 +53,13 @@ TopPlatformItem.propTypes = {
 const TopPlatformsList = () => {
     const { colorMode } = useColorMode()
   return (
-    <Box p={5} w={{base:"full", md:"488px"}} bg={colorMode === "dark" ? "black" : "white"} borderRadius="14px">
+    <Box p={5} w={{base:"full", md:"488px"}} bg={colorMode === "dark" ? "rgba(0, 0, 0, 0.40)" : "white"} borderRadius="14px">
       <HStack justify="space-between" mb={4}>
         <Text fontSize="lg" fontWeight="600" >
         Top Platform
       </Text>
 
-        <Text fontSize="lg" fontWeight="600" >
+        <Text fontSize="lg" fontWeight="600" textColor="#34CAA5">
        See all
       </Text>
           </HStack>
@@ -67,9 +67,7 @@ const TopPlatformsList = () => {
       {data.map((item, index) => (
         <TopPlatformItem key={index} {...item} />
       ))}
-      <Text color="blue.500" fontWeight="bold" cursor="pointer">
-        See All
-      </Text>
+    
     </Box>
   );
 };
