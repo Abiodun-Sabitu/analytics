@@ -1,10 +1,12 @@
-import { Box, Text, Flex, Stat, StatNumber, StatHelpText, StatArrow, SimpleGrid } from '@chakra-ui/react';
+import { Box, Text, Flex, Stat, StatNumber, StatHelpText, StatArrow, SimpleGrid, useColorMode } from '@chakra-ui/react';
 import { RefundIcon, OrderIcon, ShoppingIcon, CoinIcon, GreenPerf, RedPerf } from '../assets';
 import PropTypes from 'prop-types';
 
 const StatCard = ({ title, icon, amount, change, colorScheme }) => {
+    const { colorMode } = useColorMode();
+
   return (
-    <Box p={5} boxShadow="md" w={{base:"full", md:"239px"}}  h="179px" borderRadius="lg" bg="white">
+    <Box p={5} boxShadow="md" w={{base:"full", md:"239px"}}  h="179px" borderRadius="lg" bg={colorMode === "dark" ? "black" : "white"}>
           <Flex gap={2} justify={"space-between"} alignItems="center" mb={4}>
               <div className='rounded-[100px] border-[#E6E6E6] border p-2'>
                   <img src={icon} alt="icon" />
@@ -13,8 +15,8 @@ const StatCard = ({ title, icon, amount, change, colorScheme }) => {
 
       </Flex>
       <Stat >
-      <Text fontWeight={500} textColor={"#898989"} fontSize="18px">{title}</Text>
-        <StatNumber textColor={"#3A3F51"} fontSize="3xl">{amount}</StatNumber>
+      <Text fontWeight={500} textColor={colorMode === "dark" ? "gray.400" : "#898989"} fontSize="18px">{title}</Text>
+        <StatNumber textColor={colorMode === "dark" ? "gray.200" : "#3A3F51"} fontSize="3xl">{amount}</StatNumber>
         <StatHelpText fontSize="14px">
                   <Box fontSize="12px" p={1} textColor={change >= 0 ? "green.400" : "red.400"} rounded={"100px"} bg={change >= 0 ? "#34CAA51F" : "#ED544E1F"} as="span">
                       <StatArrow type={change >= 0 ? 'increase' : 'decrease'} color={change >= 0 ? 'green.400' : 'red.400'} />

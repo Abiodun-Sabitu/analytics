@@ -8,7 +8,7 @@ import {
   Tooltip,
   Legend,
 } from 'chart.js';
-import { Box, HStack, Select, Text } from '@chakra-ui/react';
+import { Box, HStack, Select, Text, useColorMode } from '@chakra-ui/react';
 import { options } from '../utils/chart-options';
 
 ChartJS.register(
@@ -51,8 +51,10 @@ const data = {
 };
 
 const SalesChart = () => {
+    const { colorMode } = useColorMode()
+
   return (
-    <Box width={{base: "full", md:"600px", lg:"806px"}} px={4} borderRadius={"14px"} bg="white" pt={6} pb={14} height="380px" position="relative">
+    <Box width={{base: "full", md:"600px", lg:"806px"}} px={4} borderRadius={"14px"} bg={colorMode === "dark" ? "black" : "white"} pt={6} pb={14} height="380px" position="relative">
       <HStack w="full" mb={3} justify="space-between">
         <Text fontWeight="600" fontSize="18px">Sales Trend</Text>
 

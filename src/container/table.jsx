@@ -8,13 +8,15 @@ import {
     TableContainer,
     HStack,
     Text,
+    useColorMode,
   
 } from '@chakra-ui/react';
 import { usersData } from '../utils/dummy-data';
 
 export default function TableSection() {
+    const { colorMode } = useColorMode()
   return (
-      <TableContainer w={{base:"full", md:"602px", lg:'806px'  }} p={4} bg="white" borderRadius="14px">
+      <TableContainer w={{base:"full", md:"602px", lg:'806px'  }} p={4} bg={colorMode === "dark" ? "black" : "white"} borderRadius="14px">
           <HStack justify="space-between" mb={3}>
               <Text fontWeight={600} fontSize={"18px"}>
                 Last Orders
@@ -38,14 +40,14 @@ export default function TableSection() {
         <Tbody>
           {usersData.map((user) => (
             <Tr key={user.id}>
-              <Td fontWeight={500} textColor="#3A3F51" py={4}> 
+              <Td fontWeight={500} textColor={colorMode === "dark" ? "gray.200" : "#3A3F51"} py={4}> 
                 <div className="flex items-center">
                   <img src={user.avatarUrl} alt="avatar" className="rounded-full mr-4" />
                   {user.name}
                 </div>
               </Td>
-              <Td textColor={"#9CA4AB"} py={4}>{user.date}</Td>
-              <Td textColor="#0D062D" fontWeight={500} py={4}>{`$${user.amount.toLocaleString()}`}</Td>
+              <Td textColor={colorMode === "dark" ? "gray.200" : "#9CA4AB"} py={4}>{user.date}</Td>
+              <Td textColor={colorMode === "dark" ? "gray.200" : "#0D062D"} fontWeight={500} py={4}>{`$${user.amount.toLocaleString()}`}</Td>
               <Td fontWeight={400} py={4}>
                 {user.status === 'Paid' ? (
                   <span className="text-[#34CAA5] flex align-center">
@@ -59,7 +61,7 @@ export default function TableSection() {
               </Td>
               <Td textColor={"#0D062D"} display={"flex"} alignItems={"center"} gap={2} fontSize={"14px"}  py={4}>
                 <img src="/icons/in_icon.png" alt="icon" />
-                <a href={`/invoices/${user.id}`} className="text-[#0D062D] font-[400] hover:underline">
+                <a href={`/invoices/${user.id}`} className={`${colorMode === "dark" ? "text-gray-200" : "text-[#0D062D]"}  font-[400] hover:underline`}>
                   View
                 </a>
               </Td>

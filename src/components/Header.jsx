@@ -1,15 +1,17 @@
-import React from "react";
 import Search from "../components/Search";
 import Dropdown from "../components/UserProfile";
 import date_icon from "../assets/date_icon.svg";
 import bell_icon from "../assets/bell_icon.svg";
-
+import { useColorMode } from "@chakra-ui/react"
 import todaysDate from "../helpers/Date";
+
 const Header = () => {
+  const { colorMode } = useColorMode()
   const getTodaysDate = todaysDate();
+
   return (
     <>
-      <header className="shadow h-20 w-full bg-[#FAFAFA] flex flex-col justify-center">
+      <header className={`shadow h-20 w-full ${colorMode === "dark" ? "bg-black/90 text-gray-200" : "bg-[#FAFAFA]"} flex flex-col justify-center`}>
         <div className="border mx-6 flex">
           <div className="border w-6/12 pt-2">
             <h3 className=" text-[1.3rem] font-semibold">Dashboard</h3>
@@ -34,6 +36,7 @@ const Header = () => {
             <Dropdown />
           </div>
         </div>
+
       </header>
     </>
   );

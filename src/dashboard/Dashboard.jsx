@@ -4,8 +4,10 @@ import { Outlet } from "react-router-dom";
 import  Dash from "../Dashboard";
 import Loader from "../loader"
 import { useEffect, useState } from "react"
+
 const Dashboard = () => {
   const [isLoading, setIsLoading] = useState(true);
+
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -26,9 +28,10 @@ const Dashboard = () => {
 
   return (
     <>
-      <div className="flex">
+      <div className="flex relative">
+        
         <Sidebar />
-        <main className=" w-full">
+        <main className=" w-full ml-[75px]">
           <Header />
           <Dash />
           
