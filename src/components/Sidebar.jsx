@@ -36,10 +36,10 @@ const Sidebar = () => {
 
   return (
     <>
-      <aside className="border w-[75px] min-h-screen flex bg-[#F7F8FA]">
+      <aside className="w-[75px] min-h-screen flex bg-[#F7F8FA] shadow-md">
         <nav id="sidebar">
           <NavLink className="flex justify-center">
-            <img src={logo} alt="logo" className="mt-3 h-10" />
+            <img src={logo} alt="logo" className="mt-5 h-10" />
           </NavLink>
 
           <ul className="mt-5 w-[4.6rem] grid gap-6">
@@ -55,7 +55,7 @@ const Sidebar = () => {
             <li>
               <NavLink
                 to="service"
-                className="flex justify-between"
+                className="flex justify-between "
                 style={activeState}
               >
                 <img
