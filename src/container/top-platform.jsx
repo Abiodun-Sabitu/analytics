@@ -1,4 +1,4 @@
-import { Box, Stack, Text, Progress, useColorModeValue, HStack } from '@chakra-ui/react';
+import { Box, Stack, Text, Progress, useColorModeValue, HStack, useColorMode } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import PropTypes from 'prop-types';
 
@@ -16,9 +16,10 @@ const TopPlatformItem = ({ name, amount, percentage, colorScheme }) => {
   const bgColor = useColorModeValue(`${colorScheme}`, `${colorScheme}`);
     const trackColor = useColorModeValue("gray.100", "gray.700");
   const initialWidth = 0; 
+  const { colorMode } = useColorMode()
 
   return (
-    <Stack  justify="space-between" w="452px" bg="white" borderRadius="14px" mb={4}>
+    <Stack  justify="space-between" w={{base: "full", md:"452px"}} bg={colorMode === "dark" ? "black" : "white"} borderRadius="14px" mb={4}>
           <Text fontWeight={600}>{name}</Text>
           <MotionBox bg={trackColor} width="100%" rounded={"full"}>
         <Progress
@@ -50,8 +51,9 @@ TopPlatformItem.propTypes = {
 };
 
 const TopPlatformsList = () => {
+    const { colorMode } = useColorMode()
   return (
-    <Box p={5} shadow="md" borderWidth="1px" borderRadius="md">
+    <Box p={5} w={{base:"full", md:"488px"}} bg={colorMode === "dark" ? "black" : "white"} borderRadius="14px">
       <HStack justify="space-between" mb={4}>
         <Text fontSize="lg" fontWeight="600" >
         Top Platform

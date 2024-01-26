@@ -57,8 +57,7 @@ export const options = {
     animationDuration: 300, 
   },
   onHover: (event, chartElement) => {
-    // You can use Framer Motion or simply adjust the chart styles here
-    // For instance, to change the cursor to a pointer when hovering over a bar
+   
     event.native.target.style.cursor = chartElement[0] ? 'pointer' : 'default';
   }
 };

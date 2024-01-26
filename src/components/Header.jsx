@@ -1,16 +1,20 @@
-import React from "react";
 import Search from "../components/Search";
 import Dropdown from "../components/UserProfile";
 import date_icon from "../assets/date_icon.svg";
 import bell_icon from "../assets/bell_icon.svg";
 import todaysDate from "../utils/date";
 import { HamburgerIcon } from "@chakra-ui/icons";
+import { useColorMode } from "@chakra-ui/react"
+import todaysDate from "../helpers/Date";
 
 const Header = ({ handleMobileHeader }) => {
+
+  const { colorMode } = useColorMode()
   const getTodaysDate = todaysDate();
+
   return (
     <>
-      <header className="shadow h-20 w-full bg-[#FAFAFA] flex flex-col justify-center shadow-sm">
+       <header className={`shadow-md h-20 w-full ${colorMode === "dark" ? "bg-black/90 text-gray-200" : "bg-[#FAFAFA]"} flex flex-col justify-center`}>
         <div className=" lg:mx-4 mx-2 flex">
           <div className=" xl:w-6/12 w-4/12 pt-2">
             <h3 className=" text-[1.3rem] font-semibold">Dashboard</h3>
@@ -43,6 +47,7 @@ const Header = ({ handleMobileHeader }) => {
             />
           </div>
         </div>
+
       </header>
     </>
   );
