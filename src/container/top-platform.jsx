@@ -51,7 +51,7 @@ TopPlatformItem.propTypes = {
 
 const TopPlatformsList = () => {
   return (
-    <Box p={5} shadow="md" borderWidth="1px" borderRadius="md">
+    <Box p={5} w="488px" bg="white" borderRadius="14px">
       <HStack justify="space-between" mb={4}>
         <Text fontSize="lg" fontWeight="600" >
         Top Platform

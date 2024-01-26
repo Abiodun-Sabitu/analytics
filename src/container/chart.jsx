@@ -8,8 +8,7 @@ import {
   Tooltip,
   Legend,
 } from 'chart.js';
-import { Avatar, Box, HStack, Select, Text, Menu, MenuButton, MenuItem, MenuList, Button, VStack } from '@chakra-ui/react';
-import { ChevronDownIcon } from "@chakra-ui/icons";
+import { Box, HStack, Select, Text } from '@chakra-ui/react';
 import { options } from '../utils/chart-options';
 
 ChartJS.register(
@@ -53,7 +52,7 @@ const data = {
 
 const SalesChart = () => {
   return (
-    <Box width={{base: "full", md:"700px"}} px={4} borderRadius={"14px"} bg="white" py={6} height="300px" position="relative">
+    <Box width={{base: "full", md:"600px", lg:"806px"}} px={4} borderRadius={"14px"} bg="white" py={6} height="380px" position="relative">
       <HStack w="full" mb={3} justify="space-between">
         <Text fontWeight="600" fontSize="18px">Sales Trend</Text>
 
@@ -62,27 +61,6 @@ const SalesChart = () => {
             <Select fontSize="12px" focusBorderColor='' placeholder="Weekly" w="96px" size="sm" borderRadius="100px"   zIndex="10">
             {/* Options here */}
             </Select>
-
-            <Menu bg="white" preventOverflow border borderRadius="100px" zIndex="10" h="52px">
-                    <MenuButton as={Button} borderColor="#26282C" borderWidth={"1px"}  borderRadius={"100px"} preventOverflow h="52px" bg="white" rightIcon={<ChevronDownIcon size="lg" />}>
-                    <HStack>
-                        <Avatar src="/img/profile_img.png" size="sm" />    
-                        <VStack>
-                            <Text fontSize="16px" fontWeight={400} textColor="#26282C">Justin Bergson</Text>
-                            <Text textColor={"#787486"} fontWeight={400} fontSize={"14px"}>Justin@gmail.com</Text>
-                        </VStack>
-
-                   </HStack>
-                      </MenuButton>
-                      
-                <MenuList>
-                    <MenuItem>Download</MenuItem>
-                    <MenuItem>Create a Copy</MenuItem>
-                    <MenuItem>Mark as Draft</MenuItem>
-                    <MenuItem>Delete</MenuItem>
-                    <MenuItem>Attend a Workshop</MenuItem>
-                </MenuList>
-            </Menu>
         </HStack>
 
       </HStack>

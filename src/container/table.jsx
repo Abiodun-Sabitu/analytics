@@ -14,7 +14,7 @@ import { usersData } from '../utils/dummy-data';
 
 export default function TableSection() {
   return (
-      <TableContainer width={"806px"} p={4} bg="white" borderRadius="14px">
+      <TableContainer w='806px'  p={4} bg="white" borderRadius="14px">
           <HStack justify="space-between" mb={3}>
               <Text fontWeight={600} fontSize={"18px"}>
                 Last Orders
@@ -25,7 +25,7 @@ export default function TableSection() {
               </Text>
           </HStack>
 
-      <Table variant='simple'>
+      <Table variant='simple' w="full">
         <Thead>
           <Tr>
             <Th textColor={"#9CA4AB"}>Name</Th>
