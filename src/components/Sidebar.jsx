@@ -1,4 +1,3 @@
-import { React } from "react";
 import logo from "../assets/logo.svg";
 import dashboard_icon from "../assets/dashboard_icon.svg";
 import performance_icon from "../assets/performance_icon.svg";
@@ -11,6 +10,8 @@ import info_icon from "../assets/info_icon.svg";
 import active_icon from "../assets/active_icon.svg";
 import logout_icon from "../assets/logout_icon.svg";
 import { NavLink } from "react-router-dom";
+import { useColorMode } from "@chakra-ui/react"
+import ToggleSwitch from "./Switch";
 
 /*
 1. The tiny black icon to the right of every menu on the sidebar is implemented as a background
@@ -20,6 +21,7 @@ import { NavLink } from "react-router-dom";
 */
 
 const Sidebar = () => {
+  const { colorMode } = useColorMode()
   // This is the style that applies when a <Navlink/> is active.
   const activeState = ({ isActive }) => {
     return {
@@ -35,21 +37,22 @@ const Sidebar = () => {
   };
 
   return (
-    <>
-      <aside className="w-[75px] min-h-screen flex bg-[#F7F8FA] shadow-md">
-        <nav id="sidebar">
+    <div className="fixed top-0 left-0">
+      <aside className={`w-[75px] relative  h-screen  ${colorMode === "dark" ? "bg-black/90" : "bg-[#F7F8FA]"} shadow-md`}>
+        <nav className="space-y-4" id="sidebar">
           <NavLink className="flex justify-center">
             <img src={logo} alt="logo" className="mt-5 h-10" />
           </NavLink>
 
-          <ul className="mt-5 w-[4.6rem] grid gap-6">
+          <ul className="w-full space-y-4">
+             
             <li>
               <NavLink
                 to="/"
                 className="flex justify-between"
                 style={activeState}
               >
-                <img src={dashboard_icon} alt="overview" className="px-6" />
+                <img src={colorMode ==="dark" ? "/overview_light.png" : dashboard_icon} alt="overview" className="px-6" />
               </NavLink>
             </li>
             <li>
@@ -125,9 +128,15 @@ const Sidebar = () => {
                 <img src={info_icon} alt="more_info" className="px-6" />
               </NavLink>
             </li>
+            <li className=""> 
+              <ToggleSwitch />
+            </li>
           </ul>
 
-          <ul className=" mt-28 grid gap-7 place-content-center">
+          
+                
+
+          <ul className="absolute bottom-10 grid gap-7 place-content-center">
             <li>
               <NavLink
                 to="/default"
@@ -161,7 +170,7 @@ const Sidebar = () => {
           </ul>
         </nav>
       </aside>
-    </>
+    </div>
   );
 };
 
