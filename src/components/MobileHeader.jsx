@@ -19,7 +19,7 @@ const MobileHeader = ({ isMobileHeaderOpen }) => {
   return (
     <>
       <aside
-        className="border h-[90%] w-72 z-40 absolute px-3 right-0 bg-white shadow-xl"
+        className="h-[90%] w-72 z-40 absolute px-3 right-0 bg-white shadow-xl"
         style={animateMobileHeader()}
       >
         <div className="pt-10">

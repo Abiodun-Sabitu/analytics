@@ -11,7 +11,7 @@ function Dashboard() {
         colorMode === "dark" ? "bg-[#0F0F0F]" : "bg-[#FAFAFA]"
       } space-y-6 p-[16px]`}
     >
-      <div className="flex flex-col md:flex-row items-start w-full justify-evenly bg-red-600">
+      <div className="flex flex-col lg:flex-row items-start w-full justify-between">
         <SalesChart />
         <Stats />
       </div>
