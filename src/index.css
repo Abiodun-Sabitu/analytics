@@ -5,6 +5,7 @@
 * {
   margin: 0;
   padding: 0;
+  /* border: solid 1px !important; */
 }
 body {
   font-family: "Plus Jakarta Sans Variable", sans-serif;
@@ -12,6 +13,28 @@ body {
   font-weight: 400;
 }
 
+@keyframes slideIn {
+  from {
+    width: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+  to {
+    width: 250px;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    width: 250px;
+    padding: 0;
+  }
+  to {
+    width: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+}
 
 @keyframes draw {
   0% {
