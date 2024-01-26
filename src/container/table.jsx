@@ -14,7 +14,7 @@ import { usersData } from '../utils/dummy-data';
 
 export default function TableSection() {
   return (
-      <TableContainer w='806px'  p={4} bg="white" borderRadius="14px">
+      <TableContainer w={{base:"full", md:"602px", lg:'806px'  }} p={4} bg="white" borderRadius="14px">
           <HStack justify="space-between" mb={3}>
               <Text fontWeight={600} fontSize={"18px"}>
                 Last Orders

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 const StatCard = ({ title, icon, amount, change, colorScheme }) => {
   return (
-    <Box p={5} boxShadow="md" w="239px"  h="179px" borderRadius="lg" bg="white">
+    <Box p={5} boxShadow="md" w={{base:"full", md:"239px"}}  h="179px" borderRadius="lg" bg="white">
           <Flex gap={2} justify={"space-between"} alignItems="center" mb={4}>
               <div className='rounded-[100px] border-[#E6E6E6] border p-2'>
                   <img src={icon} alt="icon" />
@@ -39,7 +39,7 @@ StatCard.propTypes = {
 
 const StatsContainer = () => {
   return (
-      <SimpleGrid columns={[1, 2]} spacingX='20px'  spacingY='20px'>
+      <SimpleGrid columns={[1, 2]} w={{base:"full", md:"488px"}} spacingX='20px'  spacingY='20px'>
       <StatCard
         title="Total Order"
         icon={RefundIcon}
