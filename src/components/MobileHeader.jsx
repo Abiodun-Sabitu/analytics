@@ -6,13 +6,22 @@ import bell_icon from "../assets/bell_icon.svg";
 import { Avatar, HStack, Text, VStack } from "@chakra-ui/react";
 
 const MobileHeader = ({ isMobileHeaderOpen }) => {
-  const closeMobileHeader = () => {
+  const animateMobileHeader = () => {
     {
+      return {
+        animation: isMobileHeaderOpen
+          ? "slideIn 0.3s ease-out forwards "
+          : "slideOut 0.3s ease-out forwards",
+      };
     }
   };
+  // console.log(isMobileHeaderOpen, "this is from mobile header ");
   return (
     <>
-      <aside className="border h-[90%] w-72 z-40 absolute px-2 right-0">
+      <aside
+        className="border h-[90%] w-72 z-40 absolute px-3 right-0 bg-white shadow-xl"
+        style={animateMobileHeader()}
+      >
         <div className="pt-10">
           <HStack>
             <Avatar src="/img/profile_img.png" size="lg" />

@@ -9,6 +9,7 @@ const Dashboard = () => {
 
   const handleMobileHeader = () => {
     setIsMobileHeaderOpen(!isMobileHeaderOpen);
+    // console.log(isMobileHeaderOpen);
   };
 
   return (
@@ -16,13 +17,11 @@ const Dashboard = () => {
       <div className="flex">
         <Sidebar />
         <main className=" w-full">
-          <Header />
+          {isMobileHeaderOpen}
+          <Header handleMobileHeader={handleMobileHeader} />
           <Outlet />
           <div className=" lg:hidden">
-            <MobileHeader
-              isMobileHeaderOpen={isMobileHeaderOpen}
-              handleMobileHeader={handleMobileHeader}
-            />
+            <MobileHeader isMobileHeaderOpen={isMobileHeaderOpen} />
           </div>
         </main>
       </div>
