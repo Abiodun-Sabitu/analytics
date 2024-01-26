@@ -8,7 +8,7 @@ import {
   Tooltip,
   Legend,
 } from 'chart.js';
-import { Avatar, Box, HStack, Select, Text, Menu, MenuButton, MenuItem, MenuList, Button, VStack, ButtonGroup } from '@chakra-ui/react';
+import { Avatar, Box, HStack, Select, Text, Menu, MenuButton, MenuItem, MenuList, Button, VStack } from '@chakra-ui/react';
 import { ChevronDownIcon } from "@chakra-ui/icons";
 import { options } from '../utils/chart-options';
 
