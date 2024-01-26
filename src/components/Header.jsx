@@ -31,14 +31,14 @@ const Header = ({ handleMobileHeader }) => {
               style={{ fontWeight: 500 }}
             >
               <img
-                src={date_icon}
+                src={colorMode === "dark" ? "calendar_light.png" : date_icon}
                 alt="date"
                 className=" h-5 mr-4 mt-[0.18rem]"
               />
               {getTodaysDate}
             </div>
             <div className="rounded-full w-10 h-10 border grid place-content-center mt-[0.35rem]">
-              <img src={bell_icon} alt="notification" />
+              <img src={colorMode === "dark" ? "bell_light.png" : bell_icon} alt="notification" />
             </div>
             <Dropdown />
           </div>

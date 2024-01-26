@@ -37,7 +37,7 @@ const TopPlatformItem = ({ name, amount, percentage, colorScheme }) => {
       <HStack justify="space-between">
       <Text fontWeight={400}>{amount}</Text>
       
-      <Text color={"#525252"} fontWeight={400}>{`+${percentage}%`}</Text>
+      <Text color={colorMode === "dark" ? "gray.100" : "#525252"} fontWeight={400}>{`+${percentage}%`}</Text>
       </HStack>
     </Stack>
   );
