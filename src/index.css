@@ -11,3 +11,22 @@ body {
   font-optical-sizing: auto;
   font-weight: 400;
 }
+
+
+@keyframes draw {
+  0% {
+    stroke-dasharray: 0, 150;
+  }
+  50% {
+    stroke-dasharray: 100, 150;
+  }
+  100% {
+    stroke-dasharray: 0, 150;
+  }
+}
+
+.loader-circle {
+  stroke-dasharray: 0, 150;
+  stroke-dashoffset: 0;
+  animation: draw 2s infinite linear;
+}
