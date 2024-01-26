@@ -6,7 +6,7 @@ const StatCard = ({ title, icon, amount, change, colorScheme }) => {
     const { colorMode } = useColorMode();
 
   return (
-    <Box p={5} boxShadow="md" w={{base:"full", md:"239px"}}  h="179px" borderRadius="lg" bg={colorMode === "dark" ? "black" : "white"}>
+    <Box p={5} boxShadow="md" w={{base:"full", md:"239px"}}  h="179px" borderRadius="lg" bg={colorMode === "dark" ? "rgba(0, 0, 0, 0.40)" : "white"}>
           <Flex gap={2} justify={"space-between"} alignItems="center" mb={4}>
               <div className='rounded-[100px] border-[#E6E6E6] border p-2'>
                   <img src={icon} alt="icon" />
@@ -16,7 +16,7 @@ const StatCard = ({ title, icon, amount, change, colorScheme }) => {
       </Flex>
       <Stat >
       <Text fontWeight={500} textColor={colorMode === "dark" ? "gray.400" : "#898989"} fontSize="18px">{title}</Text>
-        <StatNumber textColor={colorMode === "dark" ? "gray.200" : "#3A3F51"} fontSize="3xl">{amount}</StatNumber>
+        <StatNumber textColor={colorMode === "dark" ? "gray.200" : "#3A3F51"} fontSize="24px">{amount}</StatNumber>
         <StatHelpText fontSize="14px">
                   <Box fontSize="12px" p={1} textColor={change >= 0 ? "green.400" : "red.400"} rounded={"100px"} bg={change >= 0 ? "#34CAA51F" : "#ED544E1F"} as="span">
                       <StatArrow type={change >= 0 ? 'increase' : 'decrease'} color={change >= 0 ? 'green.400' : 'red.400'} />

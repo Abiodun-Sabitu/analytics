@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import {
   Table,
   Thead,
@@ -5,42 +6,63 @@ import {
   Tr,
   Th,
   Td,
-    TableContainer,
-    HStack,
-    Text,
-    useColorMode,
-  
+  TableContainer,
+  Box,
+  Button,
+  Flex,
+  Text,
+  HStack, useColorMode, Image
 } from '@chakra-ui/react';
-import { usersData } from '../utils/dummy-data';
+import { motion } from 'framer-motion';
+import { usersData } from '../utils/dummy-data'; 
 
-export default function TableSection() {
-    const { colorMode } = useColorMode()
+const MotionTr = motion(Tr);
+
+const ITEMS_PER_PAGE = 5;
+
+const TableSection = () => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const [paginatedData, setPaginatedData] = useState([]);
+
+  const { colorMode } = useColorMode()
+
+  useEffect(() => {
+    const start = (currentPage - 1) * ITEMS_PER_PAGE;
+    const end = start + ITEMS_PER_PAGE;
+    setPaginatedData(usersData.slice(start, end));
+  }, [currentPage]);
+
+  const totalPages = Math.ceil(usersData.length / ITEMS_PER_PAGE);
+
   return (
-      <TableContainer w={{base:"full", md:"602px", lg:'806px'  }} p={4} bg={colorMode === "dark" ? "black" : "white"} borderRadius="14px">
-          <HStack justify="space-between" mb={3}>
-              <Text fontWeight={600} fontSize={"18px"}>
-                Last Orders
-              </Text>
-
-              <Text fontWeight={500} textColor="#34CAA5">
+    <Box p={4} w={{base:"full", md:"602px", lg:'806px'  }}  borderRadius="14px" boxShadow="lg" bg={colorMode === "dark" ? "rgba(0, 0, 0, 0.40)" : "white"}>
+      <Flex justifyContent="space-between" alignItems="center" mb={4}>
+        <Text fontWeight="600" fontSize="18px">Last Orders</Text>
+         <Text cursor={"pointer"} fontWeight={500} textColor="#34CAA5">
                   See all
               </Text>
-          </HStack>
+      </Flex>
 
-      <Table variant='simple' w="full">
-        <Thead>
-          <Tr>
-            <Th textColor={"#9CA4AB"}>Name</Th>
-            <Th textColor={"#9CA4AB"}>Date</Th>
-            <Th textColor={"#9CA4AB"}>Amount</Th>
-            <Th textColor={"#9CA4AB"}>Status</Th>
-            <Th textColor={"#9CA4AB"}>Invoice</Th>
-          </Tr>
-        </Thead>
-        <Tbody>
-          {usersData.map((user) => (
-            <Tr key={user.id}>
-              <Td fontWeight={500} textColor={colorMode === "dark" ? "gray.200" : "#3A3F51"} py={4}> 
+      <TableContainer>
+        <Table variant='simple'>
+          <Thead>
+            <Tr>
+              <Th>Name</Th>
+              <Th>Date</Th>
+              <Th>Amount</Th>
+              <Th>Status</Th>
+              <Th>Invoice</Th>
+            </Tr>
+          </Thead>
+          <Tbody>
+            {paginatedData.map((user, index) => (
+              <MotionTr
+                key={user.id}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: index * 0.1 }}
+              >
+                <Td fontWeight={500} textColor={colorMode === "dark" ? "gray.200" : "#3A3F51"} py={4}> 
                 <div className="flex items-center">
                   <img src={user.avatarUrl} alt="avatar" className="rounded-full mr-4" />
                   {user.name}
@@ -59,16 +81,39 @@ export default function TableSection() {
                   </span>
                 )}
               </Td>
-              <Td textColor={"#0D062D"} display={"flex"} alignItems={"center"} gap={2} fontSize={"14px"}  py={4}>
-                <img src="/icons/in_icon.png" alt="icon" />
-                <a href={`/invoices/${user.id}`} className={`${colorMode === "dark" ? "text-gray-200" : "text-[#0D062D]"}  font-[400] hover:underline`}>
-                  View
-                </a>
-              </Td>
-            </Tr>
-          ))}
-        </Tbody>
-      </Table>
-    </TableContainer>
+             <Td py={4} isNumeric>
+  <HStack spacing={2}>
+    <Image src="/icons/in_icon.png" alt="icon" />
+    <Text as="a" href={`/invoices/${user.id}`} className="hover:underline" color={colorMode === "dark" ? "gray.200" : "black"}>
+      View
+    </Text>
+  </HStack>
+</Td>
+              </MotionTr>
+            ))}
+          </Tbody>
+        </Table>
+      </TableContainer>
+
+      <HStack justifyContent="center" mt={4}>
+        <Button
+          disabled={currentPage === 1}
+          onClick={() => setCurrentPage(currentPage - 1)}
+        >
+          Previous
+        </Button>
+        <Text mx={2}>
+          Page {currentPage} of {totalPages}
+        </Text>
+        <Button
+          disabled={currentPage === totalPages}
+          onClick={() => setCurrentPage(currentPage + 1)}
+        >
+          Next
+        </Button>
+      </HStack>
+    </Box>
   );
-}
+};
+
+export default TableSection;
