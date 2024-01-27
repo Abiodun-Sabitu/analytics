@@ -13,6 +13,7 @@ import PropTypes from "prop-types";
 import { useState, useEffect } from "react";
 import OnboardingGuide from "../components/Onboarding";
 
+console.log("");
 const data = [
   {
     name: "Book Bazaar",
