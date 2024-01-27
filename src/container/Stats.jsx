@@ -26,7 +26,7 @@ const StatCard = ({ title, icon, amount, change, colorScheme }) => {
     <Box
       p={5}
       boxShadow="md"
-      w={{ base: "full", md: "239px" }}
+      w={{ base: "full", lg: "full", xl: "full" }}
       h="179px"
       borderRadius="lg"
       bg={colorMode === "dark" ? "#161b22" : "white"}
@@ -50,7 +50,7 @@ const StatCard = ({ title, icon, amount, change, colorScheme }) => {
         </Text>
         <StatNumber
           textColor={colorMode === "dark" ? "gray.200" : "#3A3F51"}
-          fontSize="3xl"
+          fontSize={{ base: "18px", xl: "20px", lg: "16px" }}
         >
           {amount}
         </StatNumber>
@@ -88,8 +88,10 @@ StatCard.propTypes = {
 const StatsContainer = () => {
   return (
     <SimpleGrid
-      columns={[1, 2]}
-      w={{ base: "full", md: "488px" }}
+      // columns={[1, 2]}
+      // w={{ base: "full", xl: "35%" }}
+      columns={{ base: 1, sm: 1, md: 2, lg: 2, xl: 2 }}
+      w="full"
       spacingX="20px"
       spacingY="20px"
     >

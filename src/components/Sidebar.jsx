@@ -10,7 +10,7 @@ import info_icon from "../assets/info_icon.svg";
 import active_icon from "../assets/active_icon.svg";
 import logout_icon from "../assets/logout_icon.svg";
 import { NavLink } from "react-router-dom";
-import { useColorMode } from "@chakra-ui/react"
+import { useColorMode } from "@chakra-ui/react";
 import ToggleSwitch from "./Switch";
 
 /*
@@ -21,7 +21,7 @@ import ToggleSwitch from "./Switch";
 */
 
 const Sidebar = () => {
-  const { colorMode } = useColorMode()
+  const { colorMode } = useColorMode();
   // This is the style that applies when a <Navlink/> is active.
   const activeState = ({ isActive }) => {
     return {
@@ -45,14 +45,21 @@ const Sidebar = () => {
           </NavLink>
 
           <ul className="w-full space-y-4">
-             
             <li>
               <NavLink
                 to="/"
                 className="flex justify-between"
                 style={activeState}
               >
-                <img src={colorMode ==="dark" ? "/overview_light.png" : dashboard_icon} alt="overview" className="px-6" />
+                <img
+                  src={
+                    colorMode === "dark"
+                      ? "/overview_light.png"
+                      : dashboard_icon
+                  }
+                  alt="overview"
+                  className="px-6"
+                />
               </NavLink>
             </li>
             <li>
@@ -128,13 +135,10 @@ const Sidebar = () => {
                 <img src={info_icon} alt="more_info" className="px-6" />
               </NavLink>
             </li>
-            <li className=""> 
+            <li className="">
               <ToggleSwitch />
             </li>
           </ul>
-
-          
-                
 
           <ul className="absolute bottom-10 grid gap-7 place-content-center">
             <li>

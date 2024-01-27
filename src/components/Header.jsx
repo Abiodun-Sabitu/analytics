@@ -5,8 +5,8 @@ import bell_icon from "../assets/bell_icon.svg";
 import { HamburgerIcon } from "@chakra-ui/icons";
 import { useColorMode } from "@chakra-ui/react";
 import todaysDate from "../utils/date";
-import PropTypes from "prop-types"
-import { useState } from "react"
+import PropTypes from "prop-types";
+import { useState } from "react";
 import logo from "../assets/logo.svg";
 import MenuBar from "./MenuBar";
 import NotificationBar from "../container/Notifications";
@@ -15,7 +15,6 @@ const Header = ({ handleMobileHeader }) => {
   const { colorMode } = useColorMode();
   const getTodaysDate = todaysDate();
 
-  
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => setIsOpen(!isOpen);
@@ -44,10 +43,7 @@ const Header = ({ handleMobileHeader }) => {
           {/* Big screen header elements*/}
           <div className=" w-full items-center justify-between hidden lg:flex">
             <Search />
-            <div
-              className="flex justify-around"
-              style={{ fontWeight: 500 }}
-            >
+            <div className="flex justify-around" style={{ fontWeight: 500 }}>
               <img
                 src={colorMode === "dark" ? "calendar_light.png" : date_icon}
                 alt="date"
@@ -82,6 +78,6 @@ const Header = ({ handleMobileHeader }) => {
 };
 
 Header.propTypes = {
-  handleMobileHeader: PropTypes.func
-}
+  handleMobileHeader: PropTypes.func,
+};
 export default Header;
