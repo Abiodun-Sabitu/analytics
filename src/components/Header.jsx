@@ -40,9 +40,7 @@ const Header = ({ handleMobileHeader }) => {
           <div className=" xl:w-6/12 w-4/12 pt-2">
             <h3 className=" text-[1.3rem] font-semibold">Dashboard</h3>
           </div>
-           <div className="lg:hidden w-10 h-10 grid place-content-center mt-[0.35rem]">
-              <img className="cursor-pointer"  src={colorMode === "dark" ? "bell_light.png" : bell_icon} onClick={toggleSidebar} alt="notification" />
-            </div>
+           
           {/* Big screen header elements*/}
           <div className=" w-full items-center justify-between hidden lg:flex">
             <Search />
@@ -63,7 +61,10 @@ const Header = ({ handleMobileHeader }) => {
             <Dropdown />
           </div>
           {/* medium - small screen header elements*/}
-          <div className=" flex justify-end w-full pt-2 lg:hidden cursor-pointer">
+          <div className=" flex justify-end w-full pt-2 items-center space-x-5 lg:hidden cursor-pointer">
+            <div className="lg:hidden w-12 h-10 grid place-content-center">
+              <img className="cursor-pointer"  src={colorMode === "dark" ? "bell_light.png" : bell_icon} onClick={toggleSidebar} alt="notification" />
+            </div>
             <HamburgerIcon
               boxSize={7}
               color={"#34CAA5"}
