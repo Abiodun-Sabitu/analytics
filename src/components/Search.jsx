@@ -17,7 +17,7 @@ const Search = () => {
           <img src={search_icon} alt="search" />
         </button>
         <input
-          className={`border  ${colorMode === "dark" ? "bg-black/70 border-gray-100" : "white border-[#DADDDD]"} h-10 ld:h-12 xl:h-12 pl-12 w-full rounded-full focus:outline-none`}
+          className={`border  ${colorMode === "dark" ? "bg-black/70 border-gray-700" : "white border-[#DADDDD]"} h-10 ld:h-12 xl:h-12 pl-12 w-full rounded-full focus:outline-none`}
           type="text"
           name="search"
           placeholder="Search..."

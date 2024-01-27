@@ -15,8 +15,8 @@ const Header = ({ handleMobileHeader }) => {
   return (
     <>
       <header
-        className={`shadow-md h-20 w-full border-b border-[#E5EAEF] ${
-          colorMode === "dark" ? "bg-black/90 text-gray-200" : "bg-[#FAFAFA]"
+        className={`shadow-md h-20 w-full border-b  ${
+          colorMode === "dark" ? "bg-black/90 text-gray-200" : "bg-[#FAFAFA] border-[#E5EAEF]"
         } flex flex-col justify-center`}
       >
         <div className=" lg:mx-4 mx-2 flex">
