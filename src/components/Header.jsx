@@ -9,6 +9,7 @@ import PropTypes from "prop-types";
 import { useState } from "react";
 import logo from "../assets/logo.svg";
 import MenuBar from "./MenuBar";
+import NotificationBar from "../container/Notifications";
 
 const Header = ({ handleMobileHeader }) => {
   const { colorMode } = useColorMode();
@@ -17,14 +18,18 @@ const Header = ({ handleMobileHeader }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => setIsOpen(!isOpen);
+   const [isNotificationBarOpen, setIsNotificationBarOpen] = useState(false);
 
+  const toggleSidebar = () => {
+    setIsNotificationBarOpen(!isNotificationBarOpen);
+  };
+
+  
   return (
     <>
       <header
         className={`shadow-md h-20 w-full border-b  ${
-          colorMode === "dark"
-            ? "bg-black/90 text-gray-200"
-            : "bg-[#FAFAFA] border-[#E5EAEF]"
+          colorMode === "dark" ? "#161b22 text-gray-200" : "bg-[#FAFAFA] border-[#E5EAEF]"
         } flex flex-col justify-center`}
       >
         <div className=" lg:mx-4 space-x-3 items-center md:space-x-0 mx-2 flex">
@@ -34,6 +39,7 @@ const Header = ({ handleMobileHeader }) => {
           <div className=" xl:w-6/12 w-4/12 pt-2">
             <h3 className=" text-[1.3rem] font-semibold">Dashboard</h3>
           </div>
+           
           {/* Big screen header elements*/}
           <div className=" w-full items-center justify-between hidden lg:flex">
             <Search />
@@ -46,15 +52,15 @@ const Header = ({ handleMobileHeader }) => {
               {getTodaysDate}
             </div>
             <div className="rounded-full w-10 h-10 border grid place-content-center mt-[0.35rem]">
-              <img
-                src={colorMode === "dark" ? "bell_light.png" : bell_icon}
-                alt="notification"
-              />
+              <img className="cursor-pointer"  src={colorMode === "dark" ? "bell_light.png" : bell_icon} onClick={toggleSidebar} alt="notification" />
             </div>
             <Dropdown />
           </div>
           {/* medium - small screen header elements*/}
-          <div className=" flex justify-end w-full pt-2 lg:hidden cursor-pointer">
+          <div className=" flex justify-end w-full pt-2 items-center space-x-5 lg:hidden cursor-pointer">
+            <div className="lg:hidden w-12 h-10 grid place-content-center">
+              <img className="cursor-pointer"  src={colorMode === "dark" ? "bell_light.png" : bell_icon} onClick={toggleSidebar} alt="notification" />
+            </div>
             <HamburgerIcon
               boxSize={7}
               color={"#34CAA5"}
@@ -63,7 +69,10 @@ const Header = ({ handleMobileHeader }) => {
           </div>
         </div>
       </header>
-      {isOpen ? <MenuBar isOpen={isOpen} toggleMenu={toggleMenu} /> : null}
+      {
+        isOpen ? (<MenuBar isOpen={isOpen} toggleMenu={toggleMenu}/>) : null
+      }
+      <NotificationBar closeBar={toggleSidebar} isOpen={isNotificationBarOpen} />
     </>
   );
 };

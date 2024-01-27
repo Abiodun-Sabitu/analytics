@@ -7,11 +7,7 @@ const Search = () => {
 
   return (
     <form
-      className={`overflow-hidden ${
-        colorMode === "dark"
-          ? "bg-black/70 border-gray-700"
-          : "white border-[#DADDDD]"
-      }`}
+      className={`overflow-hidden ${colorMode === "dark" ? "transparent border-gray-700" : "white border-[#DADDDD]"}`} 
       onSubmit={(e) => {
         e.preventDefault();
       }}
