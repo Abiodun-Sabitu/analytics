@@ -35,8 +35,8 @@ const InvoiceModal = ({ isOpen, onClose, invoiceData }) => {
 
   return (
     <Modal isOpen={isOpen} onClose={onClose} isCentered size="xl">
-      <ModalOverlay bg="none" backdropFilter="blur(0.7px)" />
-      <ModalContent>
+      <ModalOverlay bg="rgba(0,0,0,0.20)" backdropFilter="blur(0.7px)" />
+      <ModalContent bg={colorMode === "dark" ? "#161b22" : "white"}>
         <ModalHeader>Invoice Details</ModalHeader>
         <ModalCloseButton />
         <ModalBody>
