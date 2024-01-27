@@ -42,8 +42,6 @@ const Dashboard = () => {
           <div className=" lg:hidden">
             <MobileHeader handleMobileHeader={handleMobileHeader} isMobileHeaderOpen={isMobileHeaderOpen} />
           </div>
-          <Dash />
-
           <Outlet />
         </main>
       </div>
