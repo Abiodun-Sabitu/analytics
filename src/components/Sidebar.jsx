@@ -38,7 +38,7 @@ const Sidebar = () => {
 
   return (
     <div className="hidden md:block fixed top-0 left-0">
-      <aside className={`w-[75px] relative  h-screen  ${colorMode === "dark" ? "bg-black/80" : "bg-[#F7F8FA]"} shadow-md`}>
+      <aside className={`w-[75px] relative  h-screen  ${colorMode === "dark" ? "#161b22" : "bg-[#F7F8FA]"} shadow-md`}>
         <nav className="space-y-4" id="sidebar">
           <NavLink className="flex justify-center">
             <img src={logo} alt="logo" className="mt-5 h-10" />
