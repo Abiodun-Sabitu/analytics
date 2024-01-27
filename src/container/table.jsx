@@ -74,6 +74,7 @@ const TableSection = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: index * 0.1 }}
+                _hover={{ background: "rgba(52, 202, 165, 0.1)" }}
               >
                 <Td
                   fontWeight={500}
@@ -124,7 +125,7 @@ const TableSection = () => {
                     <Text
                       as="a"
                       onClick={onOpen}
-                      className="hover:underline"
+                      className="hover:underline cursor-pointer"
                       color={colorMode === "dark" ? "gray.200" : "black"}
                     >
                       View
