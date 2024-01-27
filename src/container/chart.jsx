@@ -63,7 +63,7 @@ const SalesChart = () => {
         "Jul",
         "Aug",
         "Sep",
-        "Okt",
+        "Oct",
         "Nov",
         "Des",
       ],
@@ -117,7 +117,7 @@ const SalesChart = () => {
 
         <HStack>
           <Text fontWeight={500} fontSize="14px">
-            Short by:{" "}
+            Sort by:{" "}
           </Text>
           <Select
             fontSize="12px"
