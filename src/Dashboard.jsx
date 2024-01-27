@@ -4,6 +4,16 @@ import TableContainer from "./container/table";
 import TopPlatformsList from "./container/top-platform";
 import { useColorMode, Box } from "@chakra-ui/react";
 function Dashboard() {
+  const fadeIn = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { duration: 0.8 } },
+  };
+
+  const slideIn = {
+    hidden: { x: -100, opacity: 0 },
+    visible: { x: 0, opacity: 1, transition: { duration: 0.8 } },
+  };
+
   const { colorMode } = useColorMode();
   return (
     <div

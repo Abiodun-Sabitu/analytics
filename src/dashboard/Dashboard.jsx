@@ -45,8 +45,6 @@ const Dashboard = () => {
               isMobileHeaderOpen={isMobileHeaderOpen}
             />
           </div>
-          <Dash />
-
           <Outlet />
         </main>
       </div>

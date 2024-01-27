@@ -14,9 +14,11 @@ import {
   HStack,
   useColorMode,
   Image,
+  useDisclosure,
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { usersData } from "../utils/dummy-data";
+import InvoiceModal from "../components/ViewInvoice";
 
 const MotionTr = motion(Tr);
 
@@ -35,6 +37,7 @@ const TableSection = () => {
   }, [currentPage]);
 
   const totalPages = Math.ceil(usersData.length / ITEMS_PER_PAGE);
+  const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
     <Box
@@ -110,10 +113,17 @@ const TableSection = () => {
                 </Td>
                 <Td py={4} isNumeric>
                   <HStack spacing={2}>
-                    <Image src="/icons/in_icon.png" alt="icon" />
+                    <Image
+                      src={
+                        colorMode === "dark"
+                          ? "/view_light.png"
+                          : "/icons/in_icon.png"
+                      }
+                      alt="icon"
+                    />
                     <Text
                       as="a"
-                      href={`/invoices/${user.id}`}
+                      onClick={onOpen}
                       className="hover:underline"
                       color={colorMode === "dark" ? "gray.200" : "black"}
                     >
@@ -121,6 +131,11 @@ const TableSection = () => {
                     </Text>
                   </HStack>
                 </Td>
+                <InvoiceModal
+                  isOpen={isOpen}
+                  onClose={onClose}
+                  invoiceData={user}
+                />
               </MotionTr>
             ))}
           </Tbody>

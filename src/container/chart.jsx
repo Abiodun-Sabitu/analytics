@@ -25,8 +25,14 @@ const weeklyData = [
   5000, 20000, 3000, 28000, 8000, 45000, 8000, 23000, 33000, 40000, 30000,
   22000,
 ];
-const monthlyData = weeklyData.map((data) => data * 4);
-const biMonthlyData = weeklyData.map((data) => data * 2);
+const monthlyData = [
+  20000, 50000, 25000, 70000, 32000, 90000, 40000, 60000, 80000, 50000, 75000,
+  60000,
+];
+const biMonthlyData = [
+  30000, 45000, 35000, 65000, 42000, 55000, 47000, 72000, 85000, 48000, 62000,
+  70000,
+];
 
 const SalesChart = () => {
   const { colorMode } = useColorMode();
