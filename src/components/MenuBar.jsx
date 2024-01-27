@@ -12,33 +12,44 @@ import logout_icon from "../assets/logout_icon.svg";
 import { NavLink } from "react-router-dom";
 import { useColorMode } from "@chakra-ui/react"
 import ToggleSwitch from "./Switch";
+import { motion } from "framer-motion"
 
-/*
-1. The tiny black icon to the right of every menu on the sidebar is implemented as a background
-2. DO NOT remove the properties of the className inside the <NavLink> tag
-3. Asides from the 1st & 2nd <NavLink> elements all other ones below are currently being prevented from Routing
-4. The prevented routes can be removed and pointed to the correct routes when more figma screens are made available
-*/
 
-const Sidebar = () => {
-  const { colorMode } = useColorMode()
-  // This is the style that applies when a <Navlink/> is active.
-  const activeState = ({ isActive }) => {
-    return {
-      backgroundImage: isActive ? `url(${active_icon})` : "",
-      backgroundRepeat: "no-repeat",
-      backgroundPosition: "right",
+// eslint-disable-next-line react/prop-types
+const MenuBar = ({ isOpen, toggleMenu }) => {
+    const { colorMode } = useColorMode()
+    const activeState = ({ isActive }) => {
+        return {
+        backgroundImage: isActive ? `url(${active_icon})` : "",
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "right",
+        };
     };
-  };
 
-  // prevent routing on same Navlink elements
-  const preventRouting = (e) => {
-    e.preventDefault();
-  };
+    const menuVariants = {
+        open: { opacity: 1, x: 0 },
+        closed: { opacity: 0, x: "-100%" },
+    };
+
+    const overlayVariants = {
+        open: { opacity: 1, display: 'block' },
+        closed: { opacity: 0, transitionEnd: { display: 'none' } },
+    };
+
+    const preventRouting = (e) => {
+        e.preventDefault();
+    };
 
   return (
-    <div className="hidden md:block fixed top-0 left-0">
-      <aside className={`w-[75px] relative  h-screen  ${colorMode === "dark" ? "bg-black/80" : "bg-[#F7F8FA]"} shadow-md`}>
+    <div className="w-full absolute  top-0 left-0 h-screen">
+    <motion.aside
+              
+        className={`w-[75px] fixed z-50 h-screen ${colorMode === "dark" ? "bg-black/80" : "bg-[#F7F8FA]"} shadow-md`}
+        variants={menuVariants}
+        initial="closed"
+        animate={isOpen ? "open" : "closed"}
+        transition={{ duration: 0.5 }}
+      > 
         <nav className="space-y-4" id="sidebar">
           <NavLink className="flex justify-center">
             <img src={logo} alt="logo" className="mt-5 h-10" />
@@ -169,9 +180,16 @@ const Sidebar = () => {
             </li>
           </ul>
         </nav>
-      </aside>
+          </motion.aside>
+           <motion.div
+        className="fixed inset-0 bg-black bg-opacity-50 z-10"
+        variants={overlayVariants}
+        initial="closed"
+        animate={isOpen ? "open" : "closed"}
+        onClick={toggleMenu} 
+      />
     </div>
-  );
-};
+  )
+}
 
-export default Sidebar;
+export default MenuBar

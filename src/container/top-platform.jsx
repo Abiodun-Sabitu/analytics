@@ -19,7 +19,7 @@ const TopPlatformItem = ({ name, amount, percentage, colorScheme }) => {
   const { colorMode } = useColorMode()
 
   return (
-    <Stack  justify="space-between" w={{base: "full", md:"452px"}} bg={colorMode === "dark" ? "black" : "white"} borderRadius="14px" mb={4}>
+    <Stack  justify="space-between" w={{base: "full", md:"452px"}} bg={colorMode === "dark" ? "#161b22" : "white"} borderRadius="14px" mb={4}>
           <Text fontWeight={600}>{name}</Text>
           <MotionBox bg={trackColor} width="100%" rounded={"full"}>
         <Progress
@@ -53,7 +53,7 @@ TopPlatformItem.propTypes = {
 const TopPlatformsList = () => {
     const { colorMode } = useColorMode()
   return (
-    <Box p={5} w={{base:"full", md:"488px"}} bg={colorMode === "dark" ? "rgba(0, 0, 0, 0.40)" : "white"} borderRadius="14px">
+    <Box p={5} w={{base:"full", md:"488px"}} bg={colorMode === "dark" ? "#161b22" : "white"} borderRadius="14px">
       <HStack justify="space-between" mb={4}>
         <Text fontSize="lg" fontWeight="600" >
         Top Platform

@@ -78,7 +78,7 @@ const SalesChart = () => {
   };
 
   return (
-    <Box width={{base: "full", md:"600px", lg:"806px"}} px={4} borderRadius={"14px"} bg={colorMode === "dark" ? "rgba(0, 0, 0, 0.40)" : "white"} pt={6} pb={14} height="380px" position="relative">
+    <Box width={{base: "full", md:"600px", lg:"806px"}} px={4} borderRadius={"14px"} bg={colorMode === "dark" ? "#161b22" : "white"} pt={6} pb={14} height="380px" position="relative">
       <HStack w="full" mb={3} justify="space-between">
         <Text fontWeight="600" fontSize="18px">Sales Trend</Text>
 

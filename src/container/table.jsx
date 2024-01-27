@@ -35,7 +35,7 @@ const TableSection = () => {
   const totalPages = Math.ceil(usersData.length / ITEMS_PER_PAGE);
 
   return (
-    <Box p={4} w={{base:"full", md:"602px", lg:'806px'  }}  borderRadius="14px" boxShadow="lg" bg={colorMode === "dark" ? "rgba(0, 0, 0, 0.40)" : "white"}>
+    <Box p={4} w={{base:"full", md:"602px", lg:'806px'  }}  borderRadius="14px" boxShadow="lg" bg={colorMode === "dark" ? "#161b22" : "white"}>
       <Flex justifyContent="space-between" alignItems="center" mb={4}>
         <Text fontWeight="600" fontSize="18px">Last Orders</Text>
          <Text cursor={"pointer"} fontWeight={500} textColor="#34CAA5">

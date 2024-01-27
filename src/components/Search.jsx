@@ -1,28 +1,29 @@
 import { useColorMode } from "@chakra-ui/react";
 import search_icon from "../assets/search_icon.svg";
+import { Input, InputGroup, InputLeftElement } from '@chakra-ui/react'
 
 const Search = () => {
   const { colorMode } = useColorMode();
 
-  const textColor = colorMode === "dark" ? "white" : "gray.600";
-
   return (
     <form
+      className={`overflow-hidden ${colorMode === "dark" ? "bg-black/70 border-gray-700" : "white border-[#DADDDD]"}`} 
       onSubmit={(e) => {
         e.preventDefault();
       }}
     >
-      <div className={`relative text-${textColor} xl:w-[21.5rem]`}>
-        <button type="button" className="absolute top-3 xl:top-4 left-5">
-          <img src={search_icon} alt="search" />
-        </button>
-        <input
-          className={`border  ${colorMode === "dark" ? "bg-black/70 border-gray-100" : "white border-[#DADDDD]"} h-10 ld:h-12 xl:h-12 pl-12 w-full rounded-full focus:outline-none`}
-          type="text"
-          name="search"
-          placeholder="Search..."
-        />
-      </div>
+      <InputGroup  >
+        <InputLeftElement  height="100%" display="flex" alignItems="center" justifyContent="center">
+          <img className="w-5" src={search_icon} alt="search" />
+        </InputLeftElement>
+        <Input w={{base:"full", md:"290px", lg:"340px"}} h={{base:"48px", lg:"48px"}} borderRadius={"100px"}
+         _focus={{
+          borderColor: "teal.500", 
+          boxShadow: "0 0 0 1px rgba(56, 178, 172, 0.6)", 
+        }}
+          pr='4.5rem' placeholder="Search..." />
+      </InputGroup>
+
     </form>
   );
 };
