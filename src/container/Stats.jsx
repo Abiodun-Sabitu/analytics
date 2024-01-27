@@ -26,10 +26,11 @@ const StatCard = ({ title, icon, amount, change, colorScheme }) => {
     <Box
       p={5}
       boxShadow="md"
-      w={{ base: "full", md: "239px" }}
+      w={{ base: "full", lg: "239px", xl: "270px" }}
       h="179px"
       borderRadius="lg"
       bg={colorMode === "dark" ? "rgba(0, 0, 0, 0.40)" : "white"}
+      alignSelf="end"
     >
       <Flex gap={2} justify={"space-between"} alignItems="center" mb={4}>
         <div className="rounded-[100px] border-[#E6E6E6] border p-2">
@@ -88,8 +89,10 @@ StatCard.propTypes = {
 const StatsContainer = () => {
   return (
     <SimpleGrid
-      columns={[1, 2]}
-      w={{ base: "full", md: "488px" }}
+      // columns={[1, 2]}
+      // w={{ base: "full", xl: "35%" }}
+      columns={{ base: 1, sm: 1, md: 2, lg: 2, xl: 2 }}
+      w="full"
       spacingX="20px"
       spacingY="20px"
     >
