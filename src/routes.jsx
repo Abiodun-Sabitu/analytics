@@ -1,13 +1,17 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Dashboard from "./dashboard/Dashboard";
 import Service from "./dashboard/Service";
+import App from "./App";
+import ComingSoonPage from "./container/coming-soon";
 const ApplicationRoutes = () => {
   return (
     <>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Dashboard />}>
-            <Route path="service" element={<Service />}></Route>
+            <Route path="" element={<App />} />
+            <Route path="service" element={<ComingSoonPage />}></Route>
+            
           </Route>
         </Routes>
       </BrowserRouter>

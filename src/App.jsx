@@ -1,7 +1,7 @@
-import ApplicationRoutes from "./routes";
+import Dashboard from "./Dashboard";
 
 function App() {
-  return <ApplicationRoutes />;
+  return <Dashboard />;
 }
 
 export default App;
