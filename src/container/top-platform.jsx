@@ -50,7 +50,7 @@ const TopPlatformItem = ({ name, amount, percentage, colorScheme }) => {
     <Stack
       justify="space-between"
       w={"full"}
-      bg={colorMode === "dark" ? "black" : "white"}
+      bg={colorMode === "dark" ? "#161b22" : "white"}
       borderRadius="14px"
       mb={4}
     >
@@ -93,7 +93,7 @@ const TopPlatformsList = () => {
     <Box
       p={5}
       w={"full"}
-      bg={colorMode === "dark" ? "rgba(0, 0, 0, 0.40)" : "white"}
+      bg={colorMode === "dark" ? "#161b22" : "white"}
       borderRadius="14px"
     >
       <HStack justify="space-between" mb={4}>

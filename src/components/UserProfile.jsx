@@ -18,14 +18,14 @@ const UserProfile = () => {
   const { colorMode } = useColorMode();
   
   return (
-    <Menu bg={colorMode === "dark" ? "rgba(0, 0, 0, 0.40)" : "white"} border borderRadius="100px" zIndex="10" h="52px">
+    <Menu bg={colorMode === "dark" ? "transparent" : "white"} border borderRadius="100px" zIndex="10" h="52px">
       <MenuButton
         as={Button}
-        borderColor="#DADDDD"
+        borderColor={colorMode === "dark" ? "gray.700" : "#DADDDD"}
         borderWidth={"1px"}
         borderRadius={"100px"}
         h="52px"
-        bg={colorMode === "dark" ? "rgba(0, 0, 0, 0.40)" : "white"} 
+        bg={colorMode === "dark" ? "transparent" : "white"} 
         _hover={colorMode === "dark" ? "bg-black" : "gray.50"}
         rightIcon={<ChevronDownIcon boxSize={7} color="#4F4D57" />}
         spacing={0}
@@ -43,7 +43,7 @@ const UserProfile = () => {
         </HStack>
       </MenuButton>
 
-      <MenuList bg={colorMode === "dark" ? "rgba(0, 0, 0, 0.40)" : "white"}>
+      <MenuList bg={colorMode === "dark" ? "#161b22" : "white"}>
         <MenuItem>
           <img src={Settings_icon} alt="settings" className="mr-3" /> Settings
         </MenuItem>

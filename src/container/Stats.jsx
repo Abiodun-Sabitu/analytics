@@ -26,11 +26,10 @@ const StatCard = ({ title, icon, amount, change, colorScheme }) => {
     <Box
       p={5}
       boxShadow="md"
-      w={{ base: "full", lg: "239px", xl: "270px" }}
+      w={{ base: "full", lg: "full", xl: "full" }}
       h="179px"
       borderRadius="lg"
-      bg={colorMode === "dark" ? "rgba(0, 0, 0, 0.40)" : "white"}
-      alignSelf="end"
+      bg={colorMode === "dark" ? "#161b22" : "white"}
     >
       <Flex gap={2} justify={"space-between"} alignItems="center" mb={4}>
         <div className="rounded-[100px] border-[#E6E6E6] border p-2">
@@ -51,7 +50,7 @@ const StatCard = ({ title, icon, amount, change, colorScheme }) => {
         </Text>
         <StatNumber
           textColor={colorMode === "dark" ? "gray.200" : "#3A3F51"}
-          fontSize="3xl"
+          fontSize={{ base: "18px", xl: "20px", lg: "16px" }}
         >
           {amount}
         </StatNumber>

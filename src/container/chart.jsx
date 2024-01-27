@@ -95,10 +95,10 @@ const SalesChart = () => {
 
   return (
     <Box
-      width={{ base: "full", lg: "full" }}
+      width={{ base: "full", lg: "full", md: "full" }}
       px={4}
       borderRadius={"14px"}
-      bg={colorMode === "dark" ? "rgba(0, 0, 0, 0.40)" : "white"}
+      bg={colorMode === "dark" ? "#161b22" : "white"}
       pt={6}
       pb={14}
       height="380px"

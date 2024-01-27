@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 const Dashboard = () => {
   const [isMobileHeaderOpen, setIsMobileHeaderOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+
   const handleMobileHeader = () => {
     setIsMobileHeaderOpen(!isMobileHeaderOpen);
     // console.log(isMobileHeaderOpen);
@@ -36,10 +37,13 @@ const Dashboard = () => {
     <>
       <div className="flex relative">
         <Sidebar />
-        <main className=" w-full ml-[75px]">
+        <main className=" w-full ml-0 md:ml-[75px]">
           <Header handleMobileHeader={handleMobileHeader} />
           <div className=" lg:hidden">
-            <MobileHeader isMobileHeaderOpen={isMobileHeaderOpen} />
+            <MobileHeader
+              handleMobileHeader={handleMobileHeader}
+              isMobileHeaderOpen={isMobileHeaderOpen}
+            />
           </div>
           <Dash />
 

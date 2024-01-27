@@ -6,34 +6,24 @@ import { useColorMode, Box } from "@chakra-ui/react";
 function Dashboard() {
   const { colorMode } = useColorMode();
   return (
-    // <div
-    //   className={`${
-    //     colorMode === "dark" ? "bg-[#0F0F0F]" : "bg-[#FAFAFA]"
-    //   } space-y-6 p-[16px]`}
-    // >
-    //   <div className="flex flex-col xl:flex-row items-start w-full justify-evenly">
-    //     <SalesChart />
-    //     <Stats />
-    //   </div>
-    // </div>
     <div
       className={`${
         colorMode === "dark" ? "bg-[#0F0F0F]" : "bg-[#FAFAFA]"
       } p-[16px]`}
     >
       <div className="flex flex-col lg:flex-row items-start justify-between gap-4 w-full">
-        <Box w={{ base: "full", xl: "60%", lg: "50%" }}>
+        <Box w={{ base: "full", xl: "60%", lg: "50%", md: "full" }}>
           <SalesChart />
         </Box>
-        <Box w={{ base: "full", xl: "40%", lg: "50%" }}>
+        <Box w={{ base: "full", xl: "40%", lg: "50%", md: "full" }}>
           <Stats />
         </Box>
       </div>
-      <div className="flex flex-col lg:flex-row items-start justify-between gap-4 w-full">
-        <Box w={{ base: "full", xl: "60%", lg: "50%" }}>
+      <div className="flex flex-col lg:flex-row items-start justify-between gap-4 w-full mt-5">
+        <Box w={{ base: "full", xl: "60%", lg: "50%", md: "full" }}>
           <TableContainer />
         </Box>
-        <Box w={{ base: "full", xl: "40%", lg: "50%" }}>
+        <Box w={{ base: "full", xl: "40%", lg: "50%", md: "full" }}>
           <TopPlatformsList />
         </Box>
       </div>

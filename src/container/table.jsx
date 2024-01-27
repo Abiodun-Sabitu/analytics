@@ -42,7 +42,7 @@ const TableSection = () => {
       w={{ base: "full", lg: "full" }}
       borderRadius="14px"
       boxShadow="lg"
-      bg={colorMode === "dark" ? "rgba(0, 0, 0, 0.40)" : "white"}
+      bg={colorMode === "dark" ? "#161b22" : "white"}
     >
       <Flex justifyContent="space-between" alignItems="center" mb={4}>
         <Text fontWeight="600" fontSize="18px">

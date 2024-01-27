@@ -5,31 +5,39 @@ import bell_icon from "../assets/bell_icon.svg";
 import { HamburgerIcon } from "@chakra-ui/icons";
 import { useColorMode } from "@chakra-ui/react";
 import todaysDate from "../utils/date";
-import PropTypes from "prop-types"
-
+import PropTypes from "prop-types";
+import { useState } from "react";
+import logo from "../assets/logo.svg";
+import MenuBar from "./MenuBar";
 
 const Header = ({ handleMobileHeader }) => {
   const { colorMode } = useColorMode();
   const getTodaysDate = todaysDate();
 
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => setIsOpen(!isOpen);
+
   return (
     <>
       <header
-        className={`shadow-md h-20 w-full border-b border-[#E5EAEF] ${
-          colorMode === "dark" ? "bg-black/90 text-gray-200" : "bg-[#FAFAFA]"
+        className={`shadow-md h-20 w-full border-b  ${
+          colorMode === "dark"
+            ? "bg-black/90 text-gray-200"
+            : "bg-[#FAFAFA] border-[#E5EAEF]"
         } flex flex-col justify-center`}
       >
-        <div className=" lg:mx-4 mx-2 flex">
+        <div className=" lg:mx-4 space-x-3 items-center md:space-x-0 mx-2 flex">
+          <button onClick={toggleMenu} className="block md:hidden">
+            <img src={logo} alt="logo" className="pt-2 w-12" />
+          </button>
           <div className=" xl:w-6/12 w-4/12 pt-2">
             <h3 className=" text-[1.3rem] font-semibold">Dashboard</h3>
           </div>
           {/* Big screen header elements*/}
-          <div className=" w-full flex justify-between hidden lg:flex">
+          <div className=" w-full items-center justify-between hidden lg:flex">
             <Search />
-            <div
-              className="flex pt-3 justify-around"
-              style={{ fontWeight: 500 }}
-            >
+            <div className="flex justify-around" style={{ fontWeight: 500 }}>
               <img
                 src={colorMode === "dark" ? "calendar_light.png" : date_icon}
                 alt="date"
@@ -38,7 +46,10 @@ const Header = ({ handleMobileHeader }) => {
               {getTodaysDate}
             </div>
             <div className="rounded-full w-10 h-10 border grid place-content-center mt-[0.35rem]">
-              <img src={colorMode === "dark" ? "bell_light.png" : bell_icon} alt="notification" />
+              <img
+                src={colorMode === "dark" ? "bell_light.png" : bell_icon}
+                alt="notification"
+              />
             </div>
             <Dropdown />
           </div>
@@ -52,11 +63,12 @@ const Header = ({ handleMobileHeader }) => {
           </div>
         </div>
       </header>
+      {isOpen ? <MenuBar isOpen={isOpen} toggleMenu={toggleMenu} /> : null}
     </>
   );
 };
 
 Header.propTypes = {
-  handleMobileHeader: PropTypes.func
-}
+  handleMobileHeader: PropTypes.func,
+};
 export default Header;
