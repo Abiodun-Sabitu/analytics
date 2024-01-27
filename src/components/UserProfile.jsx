@@ -8,7 +8,7 @@ import {
   MenuList,
   Button,
   VStack,
-  useColorMode
+  useColorMode,
 } from "@chakra-ui/react";
 import { ChevronDownIcon } from "@chakra-ui/icons";
 import Settings_icon from "../assets/Settings_icon.svg";
@@ -16,27 +16,41 @@ import logout_icon from "../assets/logout_icon.svg";
 
 const UserProfile = () => {
   const { colorMode } = useColorMode();
-  
+
   return (
-    <Menu bg={colorMode === "dark" ? "transparent" : "white"} border borderRadius="100px" zIndex="10" h="52px">
+    <Menu
+      bg={colorMode === "dark" ? "transparent" : "white"}
+      border
+      borderRadius="100px"
+      zIndex="10"
+      h="52px"
+    >
       <MenuButton
         as={Button}
         borderColor={colorMode === "dark" ? "gray.700" : "#DADDDD"}
         borderWidth={"1px"}
         borderRadius={"100px"}
         h="52px"
-        bg={colorMode === "dark" ? "transparent" : "white"} 
-        _hover={colorMode === "dark" ? "bg-black" : "gray.50"}
+        bg={colorMode === "dark" ? "transparent" : "white"}
+        _hover={{ bg: colorMode === "dark" ? "black" : "gray.50" }}
         rightIcon={<ChevronDownIcon boxSize={7} color="#4F4D57" />}
         spacing={0}
       >
         <HStack>
           <Avatar src="/img/profile_img.png" size="sm" />
           <VStack>
-            <Text fontSize="16px" fontWeight={400} textColor={colorMode === "dark" ? "#E5EAEF" : "#26282C"}>
+            <Text
+              fontSize="16px"
+              fontWeight={400}
+              textColor={colorMode === "dark" ? "#E5EAEF" : "#26282C"}
+            >
               Justin Bergson
             </Text>
-            <Text textColor={colorMode === "dark" ? "gray.300" : "#787486"} fontWeight={400} fontSize={"14px"}>
+            <Text
+              textColor={colorMode === "dark" ? "gray.300" : "#787486"}
+              fontWeight={400}
+              fontSize={"14px"}
+            >
               Justin@gmail.com
             </Text>
           </VStack>

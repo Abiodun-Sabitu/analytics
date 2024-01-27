@@ -147,6 +147,7 @@ const TableSection = () => {
         <Button
           disabled={currentPage === 1}
           onClick={() => setCurrentPage(currentPage - 1)}
+          display={currentPage === 1 ? "none" : "block"}
         >
           Previous
         </Button>
@@ -156,6 +157,7 @@ const TableSection = () => {
         <Button
           disabled={currentPage === totalPages}
           onClick={() => setCurrentPage(currentPage + 1)}
+          display={currentPage === usersData.length ? "none" : "block"}
         >
           Next
         </Button>

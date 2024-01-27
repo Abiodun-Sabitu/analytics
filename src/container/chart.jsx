@@ -127,6 +127,7 @@ const SalesChart = () => {
             size="sm"
             borderRadius="100px"
             zIndex="10"
+            borderColor={colorMode === "dark" ? "gray.700" : "gray.500"}
           >
             <option value="Monthly">Monthly</option>
             <option value="Bi-Monthly">Bi-Monthly</option>
