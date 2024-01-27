@@ -40,7 +40,10 @@ const Dashboard = () => {
         <main className=" w-full ml-0 md:ml-[75px]">
           <Header handleMobileHeader={handleMobileHeader} />
           <div className=" lg:hidden">
-            <MobileHeader handleMobileHeader={handleMobileHeader} isMobileHeaderOpen={isMobileHeaderOpen} />
+            <MobileHeader
+              handleMobileHeader={handleMobileHeader}
+              isMobileHeaderOpen={isMobileHeaderOpen}
+            />
           </div>
           <Outlet />
         </main>
